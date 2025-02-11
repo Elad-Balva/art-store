@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Cart from '../components/Cart';
-import UserSettings from '../components/UserSettings';
 import ItemCard from '../components/ItemCard';
 import FilterControls from '../components/FilterControls';
 import { getItems, addItemToCart, removeItemFromCart } from '../services/api';
+import { FaUser } from 'react-icons/fa';
 
-const StoreFront: React.FC = () => {
+const Home: React.FC = () => {
   const [cartOpen, setCartOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
   const [cartItems, setCartItems] = useState<{ id: number; name: string; price: number }[]>([]);
   const [items, setItems] = useState<{ id: number; name: string; price: number; category: string; imageUrl: string }[]>([]);
 
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: Infinity });
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchItems();
@@ -65,9 +67,14 @@ const StoreFront: React.FC = () => {
 
   return (
     <div>
-      <Header onCartClick={() => setCartOpen(true)} onSettingsClick={() => setSettingsOpen(true)} />
+      <Header onCartClick={() => setCartOpen(true)} />
       <div className="p-4">
-        <h1 className="text-2xl mb-4">Welcome to the Art Store</h1>
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-2xl">Welcome to the Art Store</h1>
+          <button onClick={() => navigate('/settings')} className="text-xl">
+            <FaUser />
+          </button>
+        </div>
         <FilterControls
           categories={['Painting', 'Sculpture', 'Photography']}
           selectedCategory={selectedCategory}
@@ -85,9 +92,8 @@ const StoreFront: React.FC = () => {
         </div>
       </div>
       <Cart open={cartOpen} onClose={() => setCartOpen(false)} items={cartItems} onRemoveItem={handleRemoveFromCart} />
-      <UserSettings open={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </div>
   );
 };
 
-export default StoreFront;
+export default Home;

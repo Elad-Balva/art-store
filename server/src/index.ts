@@ -1,23 +1,19 @@
 import express from 'express';
-import dotenv from 'dotenv';
-import sequelize from './config/db';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 import authRoutes from './routes/authRoutes';
 import cartRoutes from './routes/cartRoutes';
 import itemRoutes from './routes/itemRoutes';
-import { PORT } from './config/environment';
-
-dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.use(express.json());
-
+app.use(cors()); // Add this line to enable CORS for all origins
+app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/items', itemRoutes);
 
-sequelize.sync().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
