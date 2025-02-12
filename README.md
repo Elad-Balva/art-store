@@ -34,7 +34,7 @@ art-store/
 │   │   ├── routes/             # API routes
 │   ├── migrations/             # Database migrations
 │   ├── seeders/                # Database seeders
-│   ├── models/                 #  Sequelize models
+│   ├── models/                 # Sequelize models
 │   ├── index.ts                # Entry point of the server
 │   ├── package.json            # Server dependencies and scripts
 │   └── ...                     # Other files and folders
@@ -153,3 +153,7 @@ Before you begin, ensure you have met the following requirements:
 
 3. Access the application:
     Open your web browser and navigate to `http://localhost:3000` to use the application.
+
+## Contact Authors
+
+eladbalva@gmail.com
