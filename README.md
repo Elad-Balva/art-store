@@ -2,6 +2,15 @@
 
 Art Store is a web application where users can browse and purchase art items.
 
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Project Setup](#project-setup)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Setting Up the Database](#setting-up-the-database)
+  - [Running the Project](#running-the-project)
+- [Contact Authors](#contact-authors)
+
 ## Tech Stack
 
 - **Frontend:** React, TypeScript, MUI, Tailwind CSS
