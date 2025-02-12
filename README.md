@@ -1,11 +1,13 @@
 # Art Store
 
-Art Store is a web application where users can browse and purchase art items. The application is built with a React frontend and an Express backend.
+Art Store is a web application where users can browse and purchase art items.
+
 ## Tech Stack
 
 - **Frontend:** React, TypeScript, MUI, Tailwind CSS
 - **Backend:** Express, TypeScript, Sequelize
 - **Database:** PostgreSQL
+
 
 ## Project Structure
 
@@ -39,6 +41,7 @@ art-store/
 ├── README.md                   # Project documentation
 └── ...                         # Other files
 ```
+
 
 ## Project Setup
 
