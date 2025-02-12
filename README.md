@@ -38,6 +38,7 @@ art-store/
 │   └── ...                     # Other files and folders
 ├── README.md                   # Project documentation
 └── ...                         # Other files
+```
 
 ## Project Setup
 
